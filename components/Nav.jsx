@@ -7,17 +7,21 @@ import {signIn, signOut, useSession,getProviders} from 'next-auth/react'
 import Image from 'next/image'
 
 const Nav = () => {
-    const isUserLoggedIn = true
+    const {data : session} = useSession()
 
     const [providers,setProviders] = useState(null)
     const [toggleDropDown, setToggleDropDown] = useState(false)
+    
 
     useEffect(()=>{
-        const setProvider = async()=>{
+        const setUpProvider = async()=>{
             const response = await getProviders()
+            
+            console.log(response,'helloo');
             setProviders(response)
+           
         }
-        setProvider()
+        setUpProvider()
     },[])
   return (
     <nav className='flex-between w-full mb-16 pt-3'>
@@ -27,9 +31,9 @@ const Nav = () => {
         </Link>
         
         {/*Desktop navigation */}
-
+        
         <div className='sm:flex hidden'>
-            {isUserLoggedIn ? (
+            {session?.user ? (
              <div className='flex gap-3 md:gap-5'>
                 <Link href="/create-prompt" className='black_btn'>
                     Create Post
@@ -45,11 +49,11 @@ const Nav = () => {
              </div>
             ) : (
                 <>
-                    {providers && Object.values(providers).map((provider)=>{
+                    {providers && Object.values(providers).map((provider)=>(
                         <button type='button' key={provider.name} onClick={() => signIn(provider.id)} className='black_btn'>
                             Sign In
                         </button>
-                    })}
+                    ))}
                 </>
             )}
 
@@ -57,7 +61,7 @@ const Nav = () => {
          {/*Mobile navigation */}
 
          <div className='sm:hidden flex relative'>
-            {isUserLoggedIn ? (
+            {session?.user ? (
                 <div className='flex'>
                     <Image src="assets/images/logo.svg" alt='User-profile' width={37} height={37} className='rounded-full' onClick={()=>setToggleDropDown((prev) => !prev)}/>
                     {toggleDropDown && (
@@ -76,11 +80,11 @@ const Nav = () => {
                 </div>
 
             ) : ( <>
-                {providers && Object.values(providers).map((provider)=>{
+                {providers && Object.values(providers).map((provider)=>(
                     <button type='button' key={provider.name} onClick={() => signIn(provider.id)} className='black_btn'>
                         Sign In
                     </button>
-                })}
+                ))}
             </>)}
          </div>
 
