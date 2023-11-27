@@ -44,7 +44,7 @@ const Nav = () => {
                 </button>
 
                 <Link href="/profile">
-                    <Image src="assets/images/logo.svg" alt='User-profile' width={37} height={37} className='rounded-full'/>
+                    <Image src={session?.user.image} alt='User-profile' width={37} height={37} className='rounded-full'/>
                 </Link>
              </div>
             ) : (
@@ -63,7 +63,7 @@ const Nav = () => {
          <div className='sm:hidden flex relative'>
             {session?.user ? (
                 <div className='flex'>
-                    <Image src="assets/images/logo.svg" alt='User-profile' width={37} height={37} className='rounded-full' onClick={()=>setToggleDropDown((prev) => !prev)}/>
+                    <Image src={session?.user.image} alt='User-profile' width={37} height={37} className='rounded-full' onClick={()=>setToggleDropDown((prev) => !prev)}/>
                     {toggleDropDown && (
                         <div className='dropdown'>
                             <Link href='/profile' className='dropdown_link' onClick={() =>setToggleDropDown(false)}>
