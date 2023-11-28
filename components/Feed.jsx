@@ -4,11 +4,7 @@ import {useState, useEffect} from 'react'
 import PromptCard from './PromptCard';
 
 const PromptCardList = ({data, handleTagClick}) =>{
-   // Check if data is an array before mapping
-   if (!Array.isArray(data)) {
-    console.error('Data is not an array:', data);
-    return null; // or handle the error in another way
-  }
+   
   return (
     <div className='mt-16 prompt_layout'>
       {data.map((post)=>(
