@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Certainly! Here's a clean and professional README for your GitHub project:
 
-## Getting Started
+```markdown
+# Promptia: Next.js Discover & Share
 
-First, run the development server:
+Promptia is an open-source AI prompting tool designed for the modern world, enabling users to discover, create, and share creative prompts effortlessly.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Create, edit, and delete prompts seamlessly using Next.js 13.
+- Utilizes a serverless backend for a smooth experience, with both frontend and backend running on a single port.
+- Authentication powered by NextAuth with Google provider for easy Google account sign-ins.
+- Search prompts by username, tag name, and prompt message.
+- Tags are clickable, redirecting to the search bar for easy exploration.
+- Copy prompt messages to the clipboard with a simple click.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Running the Application
 
-## Learn More
+1. Clone the repository:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone https://github.com/unaizk/next.js_14_share-prompts.git
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Create a `.env` file in the project root with the following details:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```dotenv
+   GOOGLE_ID=<Your Google ID>
+   GOOGLE_CLIENT_SECRET=<Your Google Client Secret>
+   MONGODB_URI=<Your MongoDB URI>
+   NEXT_AUTH_URL=http://localhost:3000
+   NEXT_AUTH_URL_INTERNAL=http://localhost:3000
+   NEXTAUTH_SECRET=<Your NextAuth Secret>
+   ```
 
-## Deploy on Vercel
+3. Install dependencies:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+4. Run the application:
+
+   ```bash
+   npm run dev
+   ```
+
+   The backend and frontend run on the same port. The serverless backend starts with a MongoDB connection function call.
+
+## Live Project
+
+Explore the live project: [Promptopia](https://promptopia.unaizk.com/)
+
+## Contributing
+
+Feel free to contribute to the development of Promptia. Create issues, submit pull requests, and let's make this tool even better together.
+
