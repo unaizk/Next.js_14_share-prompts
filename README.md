@@ -1,6 +1,3 @@
-Certainly! Here's a clean and professional README for your GitHub project:
-
-```markdown
 # Promptia: Next.js Discover & Share
 
 Promptia is an open-source AI prompting tool designed for the modern world, enabling users to discover, create, and share creative prompts effortlessly.
